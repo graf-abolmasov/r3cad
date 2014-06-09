@@ -1,0 +1,2 @@
+<div id="bottom_console" data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false"
+     refreshOnShow="false" region="bottom" splitter="true" maxSize="Infinity" style="height: 50px;"></div>

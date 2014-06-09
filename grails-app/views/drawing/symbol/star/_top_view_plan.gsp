@@ -1,0 +1,2 @@
+<%@ page contentType="text/xml;charset=UTF-8" %><g transform="scale(0.2, 0.2)"><polygon points="0,-10 -6,9 9,-3 -9,-3 6,9" style="fill:lime;stroke:purple;stroke-width:0.25;fill-rule:nonzero;"/></g>
+<circle cx="0" cy="0" r="0.12" stroke="black" stroke-width="0.05" fill="red" />

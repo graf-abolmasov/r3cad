@@ -1,0 +1,25 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+* Dojo Theme
+*= require dijit/themes/claro/claro
+*= require dijit/themes/claro/document
+*= require dojo/resources/dojo.css
+*= require dojo/resources/dnd.css
+*
+* Dgrid Theme
+*= require dgrid/css/skins/claro
+*= require dgrid/css/dgrid
+*
+*  R3 Application specific files
+*= require_tree r3
+*
+*= require_self
+*/
+
