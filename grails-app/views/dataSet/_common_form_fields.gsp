@@ -14,5 +14,5 @@
     <label class="control-label" for="railWay"><g:message code="dataSet.belongsTo.label"/></label>
     <g:select id="railWay" name="railWay.id" from="${railWays}" value="${dataSetInstance.railWayId}"
               optionKey="id" optionValue="label" noSelection="${[null:'Проекту']}" class="form-control"
-              disabled="${dataSetInstance.metaInfo.belongToForever ? 'true': 'false'}"/>
+              disabled="${dataSetInstance.metaInfo.belongsToForever ? 'true': 'false'}"/>
 </div>

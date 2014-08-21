@@ -61,9 +61,8 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.11.1"
         runtime ':twitter-bootstrap:3.2.1'
         compile ":scaffolding:2.1.2"
-        compile ":asset-pipeline:1.9.3"
-        compile ":angularjs:0.9.4"
-        compile ":sass-asset-pipeline:1.9.0"
+        compile ":asset-pipeline:1.9.9"
+        compile ":sass-asset-pipeline:1.9.1"
         compile ":coffee-asset-pipeline:1.8.0"
         compile ":rendering:1.0.0"
         compile ":haml:0.3"
@@ -77,11 +76,13 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.7'
         compile ':cache-ehcache:1.0.0'
 
-        compile ":build-test-data:2.1.2"
+        compile ":build-test-data:2.2.0"
         compile ":fixtures:1.3"
         compile ":remote-control:1.5"
-        test ":cucumber:1.0.0"
+        test(":cucumber:1.0.1") {
+            exclude "resources"
+        }
         test ":geb:${gebVersion}"
-        test ":code-coverage:2.0.3-1"
+        test ":code-coverage:2.0.3-2"
     }
 }
