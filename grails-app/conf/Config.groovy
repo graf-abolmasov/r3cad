@@ -27,7 +27,10 @@ grails.mime.types = [ // the first one is the default format
     rss:           'application/rss+xml',
     text:          'text/plain',
     hal:           ['application/hal+json','application/hal+xml'],
-    xml:           ['text/xml', 'application/xml']
+    xml:           ['text/xml', 'application/xml'],
+    embeddedSvg:   'images/embeddedSvg',
+    svg:           'image/svg',
+    lisp:          'text/lisp'
 ]
 
 // The default scope for controllers. May be prototype, session or singleton.

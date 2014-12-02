@@ -19,7 +19,9 @@ define([
     'dijit/layout/ContentPane',
     'dgrid/extensions/DijitRegistry',
     'i18n'
-], function (dom, JsonRest, Memory, Observable, declare, OnDemandGrid, Selection, Keyboard, Toolbar, ToolbarSeparator, Button, Utils, put, json, Tooltip, req, BorderContainer, ContentPane, DijitRegistry, i18n) {
+], function (dom, JsonRest, Memory, Observable, declare, OnDemandGrid, Selection, Keyboard, Toolbar,
+             ToolbarSeparator, Button, Utils, put, json, Tooltip, req, BorderContainer, ContentPane,
+             DijitRegistry, i18n) {
 
     function _initToolBar(editor) {
         var EditorToolBar = declare([Toolbar], {

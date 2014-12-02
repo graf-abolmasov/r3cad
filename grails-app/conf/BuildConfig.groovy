@@ -16,7 +16,7 @@ grails.project.fork =  [
     console: [maxMemory: 768, minMemory: 64, debug: false]
 ]
 
-def gebVersion = "0.9.3"
+def gebVersion = "0.10.0"
 def phantomJSVersion = "1.1.0"
 def webdriverVersion = "2.42.2"
 
@@ -67,7 +67,7 @@ grails.project.dependency.resolution = {
         compile ":rendering:1.0.0"
         compile ":haml:0.3"
 
-        runtime ":hibernate4:4.3.5.4"
+        runtime ":hibernate4:4.3.6.1"
         runtime ":database-migration:1.4.0"
         compile ":platform-core:1.0.1-SNAPSHOT"
         compile ":constraints:0.8.1"
@@ -76,13 +76,16 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.7'
         compile ':cache-ehcache:1.0.0'
 
-        compile ":build-test-data:2.2.0"
+//        compile ':cache:1.1.8'
+//        compile ':cache-ehcache:1.0.4'
+
+        compile ":build-test-data:2.2.2"
         compile ":fixtures:1.3"
         compile ":remote-control:1.5"
         test(":cucumber:1.0.1") {
             exclude "resources"
         }
         test ":geb:${gebVersion}"
-        test ":code-coverage:2.0.3-2"
+        test ":code-coverage:2.0.3-3"
     }
 }
