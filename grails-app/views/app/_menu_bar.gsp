@@ -22,12 +22,12 @@
                                 <g:if test="${!dataSet.metaInfo.calculated}">
                                     <span data-dojo-type="dijit/MenuItem"
                                           label="${message(code: 'app.menu.data.editValues')}"
-                                          onclick="Utils.openInExtWindow('${createLink(controller: 'dataSet', action: 'editValues', id: dataSet.id)}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
+                                          onclick="Utils.openInExtWindow('${createLink(resource: 'dataSet/dataEntry', action: 'index', dataSetId: dataSet.id, params: [projectId: projectInstance.id])}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
                                     <span data-dojo-type="dijit/MenuSeparator"></span>
                                 </g:if>
                                 <span data-dojo-type="dijit/MenuItem" label="${message(code:'app.menu.data.settings')}"
                                       data-dojo-props="iconClass:'r3-small-icon settingsIcon'"
-                                      onclick="Utils.openInExtWindow('${createLink(controller: 'dataSet', action: 'edit', id: dataSet.id)}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
+                                      onclick="Utils.openInExtWindow('${createLink(controller: 'dataSet', action: 'edit', id: dataSet.id, params: [projectId: projectInstance.id])}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
                             </span>
                         </span>
                     </g:if>
@@ -45,12 +45,12 @@
                                     <g:if test="${!dataSet.metaInfo.calculated}">
                                         <span data-dojo-type="dijit/MenuItem"
                                               label="${message(code: 'app.menu.data.editValues')}"
-                                              onclick="Utils.openInExtWindow('${createLink(controller: 'dataSet', action: 'editValues', id: dataSet.id)}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
+                                              onclick="Utils.openInExtWindow('${createLink(resource: 'dataSet/dataEntry', action: 'index', dataSetId: dataSet.id, params: [projectId: projectInstance.id])}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
                                         <span data-dojo-type="dijit/MenuSeparator"></span>
                                     </g:if>
                                     <span data-dojo-type="dijit/MenuItem" label="${message(code:'app.menu.data.settings')}"
                                           data-dojo-props="iconClass:'r3-small-icon settingsIcon'"
-                                          onclick="Utils.openInExtWindow('${createLink(controller: 'dataSet', action: 'edit', id: dataSet.id)}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
+                                          onclick="Utils.openInExtWindow('${createLink(controller: 'dataSet', action: 'edit', id: dataSet.id, params: [projectId: projectInstance.id])}', '${ProjectTreeNode.getIdentity(dataSet)}', 800, 600)"></span>
                                 </span>
                             </span>
                         </g:each>
