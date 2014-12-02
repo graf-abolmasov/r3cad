@@ -2,7 +2,7 @@ class UrlMappings {
 
     static mappings = {
 
-        "/i18n/init.js"(controller: 'i18N', action: 'init')
+        "/i18n/init.js"(controller: 'I18N', action: 'init')
         "/i18n/$i18nFileName"(controller: 'I18N', action: 'index') {
             constraints {
                 i18nFileName(matches: /messages.*\.properties/)
@@ -10,7 +10,7 @@ class UrlMappings {
         }
 
         "/$projectId/railWays"(resources: 'railWay')
-        "/$projectId/drawings/$action?/$id"(controller: 'drawing')
+        "/$projectId/drawings/$action?/$id(.$format)?"(controller: 'drawing')
 
         "/$projectId/dataSets"(resources: 'dataSet') {
             "/dataEntries"(resources: 'dataEntry') {
@@ -40,12 +40,6 @@ class UrlMappings {
         // *************************
 
 
-
-        name exportSvg: "/export/${id}/full.svg"(controller: 'drawing', action: 'exportSvg')
-
-        name exportLisp: "/export/${id}/full.lsp"(controller: 'drawing', action: 'exportLisp')
-
-        name exportPdf: "/export/${id}/full.pdf"(controller: 'drawing', action: 'exportPdf')
 
         name userTypeAheadHelper: "/helpers/users/${id}"(controller: 'user', action: 'ajaxTypeAhead')
 

@@ -2,7 +2,7 @@
     <g:each in="${projectInstance.drawings}" var="drawing">
         <div data-dojo-type="dijit/layout/ContentPane" extractContent="false" preventCache="false" preload="false"
              refreshOnShow="false" region="center" splitter="false" maxSize="Infinity" title="${drawing.name}">
-            <div id="${drawing.class.simpleName}_container" class="drawing_container" style="height: 100%; width: 100%;"></div>
+            <div id="${drawing.class.simpleName}_${drawing.id}_container" class="drawing_container" style="height: 100%; width: 100%;"></div>
         </div>
     </g:each>
 </div>
@@ -29,7 +29,8 @@
             };
 
             <g:each in="${projectInstance.drawings}" var="drawing">
-                initDrawing('${drawing.getClass().simpleName}_container', '${createLink(controller: "drawing", action: 'embedded', id: drawing.id, params: [projectId: projectInstance.id])}')
+                initDrawing('${drawing.class.simpleName}_${drawing.id}_container',
+                            '${createLink(controller: "drawing", action: 'show', id: drawing.id, params: [format: 'embeddedSvg', projectId: projectInstance.id])}')
             </g:each>
         })
     });

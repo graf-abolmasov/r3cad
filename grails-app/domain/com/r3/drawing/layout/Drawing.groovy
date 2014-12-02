@@ -5,6 +5,7 @@ import com.r3.drawing.model.DrawingModel
 import com.r3.drawing.PageSizeFormat
 import com.r3.drawing.area.PlainDrawArea
 import com.r3.tree.TreeNodeAware
+import grails.util.Pair
 
 /**
  * User: graf
@@ -49,6 +50,10 @@ abstract class Drawing implements TreeNodeAware {
     abstract String getTemplate()
 
     abstract <T extends DrawingModel> T getModel()
+
+    Pair<Integer, Integer> getPageSize() {
+        return pageFormat.multiply(pageFormatCoefficient)
+    }
 }
 
 class Margin {

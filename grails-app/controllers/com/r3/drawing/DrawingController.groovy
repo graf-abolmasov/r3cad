@@ -4,6 +4,7 @@ import com.r3.drawing.layout.Drawing
 import com.r3.drawing.layout.ProfileDrawing
 import com.r3.drawing.layout.StampData
 import com.r3.drawing.renderer.CadRenderer
+import com.r3.drawing.renderer.Renderer
 import com.r3.drawing.renderer.SvgRenderer
 import com.r3.drawing.style.LineStyle
 import com.r3.drawing.style.StylePallet
@@ -13,20 +14,23 @@ class DrawingController {
 
     private static final Random rnd = new Random()
 
-    def exportSvg(Long id) {
-        withDrawingInstance(id) { drawingInstance ->
-            def model = prepareModel(drawingInstance)
-            model['renderer'] = new SvgRenderer()
-            return model
+    def show(Long id) {
+        withDrawingInstance(id) { Drawing drawingInstance ->
+            withFormat {
+                embeddedSvg {
+                    render(view: 'show.embedded', model: prepareModel(drawingInstance, new SvgRenderer()))
+                }
+                svg {
+                    render(view: 'show.svg', model: prepareModel(drawingInstance, new SvgRenderer()))
+                }
+                pdf {
+                    render(view: 'show.svg', model: prepareModel(drawingInstance, new SvgRenderer()))
+                }
+                lisp {
+                    render(view: 'show.lisp', model: prepareModel(drawingInstance, new CadRenderer()))
+                }
+            }
         }
-    }
-
-    def extWindow(Long id) {
-        return exportSvg(id)
-    }
-
-    def embedded(Long id) {
-        return exportSvg(id)
     }
 
     /*FOR LOAD TEST ONLY*/
@@ -34,18 +38,9 @@ class DrawingController {
     def randomDrawing() {
         def profileDrawings = ProfileDrawing.findAll()
         def drawingInstance = profileDrawings.get(rnd.nextInt(profileDrawings.size()))
-        def model = prepareModel(drawingInstance)
-        model['renderer'] = new SvgRenderer()
-        return model
+        return prepareModel(drawingInstance, new SvgRenderer())
     }
 
-    def exportLisp(Long id) {
-        withDrawingInstance(id) { Drawing drawingInstance ->
-            def model = prepareModel(drawingInstance)
-            model['renderer'] = new CadRenderer()
-            render(view: 'export.lisp', model: model)
-        }
-    }
 
     def edit(Long id) {
         withDrawingInstance(id) { Drawing drawingInstance ->
@@ -78,7 +73,7 @@ class DrawingController {
         }
     }
 
-    private static Map prepareModel(Drawing drawing) {
+    private static Map prepareModel(Drawing drawing, Renderer renderer) {
 
         final List<LineStyle> allLineStyles = LineStyle.findAll()
         final HashMap<String, LineStyle> lineStyles = new HashMap<String, LineStyle>(allLineStyles.size())
@@ -98,8 +93,9 @@ class DrawingController {
                 drawingInstance     : drawing,
                 projectInstance     : drawing.project,
                 organizationInstance: drawing.project.organization,
-                pageSize            : drawing.pageFormat.multiply(drawing.pageFormatCoefficient),
-                drawingModel        : drawing.model
+                pageSize            : drawing.pageSize,
+                drawingModel        : drawing.model,
+                renderer            : renderer
         ]
     }
 

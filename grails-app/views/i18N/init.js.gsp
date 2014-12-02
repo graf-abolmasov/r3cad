@@ -5,7 +5,7 @@ define(function() {
 
   jQuery.i18n.properties({
     name: "messages",
-    path: "${g.createLink(controller: 'i18n')}/",
+    path: "${g.createLink(controller: 'I18N')}/",
     mode: "map",
     language: "${lang}"
   });

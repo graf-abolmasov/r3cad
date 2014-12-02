@@ -75,18 +75,18 @@
                         %{--<span data-dojo-type="dijit/MenuItem" label="${message(code: 'app.menu.drawings.layout')}" onclick="notImplementedYet()"></span>--}%
                         <span data-dojo-type="dijit/MenuItem" label="${message(code: 'app.menu.drawings.preferences')}"
                               data-dojo-props="iconClass:'r3-small-icon settingsIcon'"
-                              onclick="Utils.openInExtWindow('${createLink(controller: 'drawing', action: 'edit', id: drawing.id)}', '${drawing.getClass().simpleName}Editor', 800, 950)"></span>
+                              onclick="Utils.openInExtWindow('${createLink(controller: 'drawing', action: 'edit', id: drawing.id, params: [projectId: projectInstance.id])}', '${drawing.getClass().simpleName}Editor', 800, 950)"></span>
 
                         <span data-dojo-type="dijit/PopupMenuItem" label="${message(code:'app.menu.export')}" iconClass="dijitNoIcon">
                             <span data-dojo-type="dijit/Menu">
-                                <span data-dojo-type="dijit/MenuItem" label="${message(code:message(code:"app.menu.export.as.pdf"))}"
-                                      data-dojo-props="iconClass:'r3-small-icon exportAsPdfIcon'"
-                                      onclick="Utils.openInExtWindow('${createLink(mapping: 'exportPdf', id: drawing.id)}', 'full.pdf', Math.round(screen.width*0.8), Math.round(screen.height*0.8))"></span>
+                                %{--<span data-dojo-type="dijit/MenuItem" label="${message(code:message(code:"app.menu.export.as.pdf"))}"--}%
+                                      %{--data-dojo-props="iconClass:'r3-small-icon exportAsPdfIcon'"--}%
+                                      %{--onclick="Utils.openInExtWindow('${createLink(mapping: 'exportPdf', id: drawing.id)}', 'full.pdf', Math.round(screen.width*0.8), Math.round(screen.height*0.8))"></span>--}%
                                 <span data-dojo-type="dijit/MenuItem" label="${message(code:'app.menu.export.as_svg')}"
                                       data-dojo-props="iconClass:'r3-small-icon exportAsSvgIcon'"
-                                      onclick="Utils.openInExtWindow('${createLink(mapping: 'exportSvg', id: drawing.id)}', 'full.svg', Math.round(screen.width*0.8), Math.round(screen.height*0.8))" ></span>
+                                      onclick="Utils.openInExtWindow('${createLink(controller: 'drawing', action: 'show', params: [projectId: projectInstance.id, format: 'svg'], id: drawing.id)}', '${drawing.id}.svg', Math.round(screen.width*0.8), Math.round(screen.height*0.8))" ></span>
                                 <span data-dojo-type="dijit/MenuItem" label="${message(code:message(code:"app.menu.export.as.lsp"))}"
-                                      onclick="Utils.openInExtWindow('${createLink(mapping: 'exportLisp', id: drawing.id)}', 'full.lsp', Math.round(screen.width*0.8), Math.round(screen.height*0.8))"></span>
+                                      onclick="Utils.openInExtWindow('${createLink(controller: 'drawing', action: 'show', params: [projectId: projectInstance.id, format: 'lisp'], id: drawing.id)}', '${drawing.id}.lsp', Math.round(screen.width*0.8), Math.round(screen.height*0.8))"></span>
                             </span>
                         </span>
                     </span>
@@ -105,7 +105,7 @@
         <div data-dojo-type="dijit/Menu">
             <g:each in="${projectInstance.drawings}" var="drawing">
                 <span data-dojo-type="dijit/MenuItem" label="${drawing.name}"
-                      onclick="registry.byId('${drawing.getClass().simpleName}_container').refresh();"></span>
+                      onclick="registry.byId('${drawing.class.simpleName}_${drawing.id}_container').refresh();"></span>
             </g:each>
         </div>
     </div>
