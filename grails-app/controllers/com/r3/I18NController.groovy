@@ -1,9 +1,8 @@
 package com.r3
 
+import grails.util.Environment
 import org.springframework.web.servlet.support.RequestContextUtils
 
-import java.nio.charset.Charset
-import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths
 
@@ -15,15 +14,28 @@ class I18NController {
     }
 
     def index(String i18nFileName) {
-        def fileName = "grails-app/i18n/${i18nFileName}"
-        if (Files.notExists(Paths.get(fileName)))
-            fileName = 'grails-app/i18n/messages.properties'
-        String content = readFile(fileName, StandardCharsets.UTF_8);
+        String content
+        if (Environment.currentEnvironment != Environment.PRODUCTION) {
+            content = getI18nForDevelopment(i18nFileName)
+        } else {
+            content = getI18nForProduction(i18nFileName)
+        }
         render text: content, contentType: 'text/plain;charset=utf-8'
     }
 
-    private static String readFile(String path, Charset encoding) throws IOException {
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        return new String(encoded, encoding);
+    private String getI18nForDevelopment(String i18nFileName){
+        def fileName = "grails-app/i18n/${i18nFileName}"
+        if (Files.notExists(Paths.get(fileName)))
+            fileName = 'grails-app/i18n/messages.properties'
+        new FileInputStream(fileName).text
+    }
+
+    private String getI18nForProduction(String i18nFileName) {
+        def mainContext = grailsApplication.mainContext
+        def resource = mainContext.getResource("/WEB-INF/grails-app/i18n/${i18nFileName}")
+        if (resource == null) {
+            resource = mainContext.getResource("/WEB-INF/grails-app/i18n/messages.properties")
+        }
+        resource.inputStream.text
     }
 }
