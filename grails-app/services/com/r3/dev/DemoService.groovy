@@ -273,14 +273,16 @@ class DemoService {
                     radius: token_7, h: token_8, t1: token_9, t2: token_10, length: token_11, endKm: token_12, endPk: token_13,
                     endPlus: token_14, l1: token_15, l2: token_16))
 
-            elevationDataSet2.addToValues(new ElevationDataEntry(location: [km: token_0, pk: token_1, plus: token_2],
-                    elementType: token_3, angle: PlanElementsDataEntry.toDegrees(token_4, token_5, token_6),
-                    radius: token_7, h: token_8, t1: token_9, t2: token_10, length: token_11, endKm: token_12, endPk: token_13,
-                    endPlus: token_14, l1: token_15, l2: token_16,
-                    g: tokens[17], h_: tokens[18], i: tokens[19], j: tokens[20], k: tokens[21], l: tokens[22],
-                    m: tokens[23], n: tokens[24], p: tokens[25], s: tokens[26], t: tokens[27], u: tokens[28],
-                    v: tokens[29], w: tokens[30], x: tokens[31], y: tokens[32], z: tokens[33], aa: tokens[34],
-                    ab: tokens[35], ad: tokens[36], ae: tokens[37], af: '8'))
+            if (token_3 != CurveType.STRAIGHT) {
+                elevationDataSet2.addToValues(new ElevationDataEntry(location: [km: token_0, pk: token_1, plus: token_2],
+                        elementType: token_3, angle: PlanElementsDataEntry.toDegrees(token_4, token_5, token_6),
+                        radius: token_7, h: token_8, t1: token_9, t2: token_10, length: token_11, endKm: token_12, endPk: token_13,
+                        endPlus: token_14, l1: token_15, l2: token_16,
+                        g: tokens[17], h_: tokens[18], i: tokens[19], j: tokens[20], k: tokens[21], l: tokens[22],
+                        m: tokens[23], n: tokens[24], p: tokens[25], s: tokens[26], t: tokens[27], u: tokens[28],
+                        v: tokens[29], w: tokens[30], x: tokens[31], y: tokens[32], z: tokens[33], aa: tokens[34],
+                        ab: tokens[35], ad: tokens[36], ae: tokens[37], af: '8'))
+            }
         }
         saveInstance(plansElementsDataSet2)
         saveInstance(elevationDataSet2)

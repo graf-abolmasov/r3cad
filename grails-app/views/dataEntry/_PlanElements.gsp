@@ -33,12 +33,12 @@
                 numericColumn2('h', {constraints: {places: 0}}),
                 numericColumn2('t1', {smallDelta: 0.01}),
                 numericColumn2('t2', {smallDelta: 0.01}),
-                numericColumn2('length', {smallDelta: 0.001}),
+                numericColumn3('length', {smallDelta: 0.001}),
                 numericColumn2('endKm', {constraints: {min: 0, places: 0}}),
                 numericColumn2('endPk', {constraints: {min: 0, max: 9, places: 0}}),
-                numericColumn2('endPlus', {constraints: {min: 0}}),
-                numericColumn2('l1', {smallDelta: 10, constraints: {min: 0, places: 0}}),
-                numericColumn2('l2', {smallDelta: 10, constraints: {min: 0, places: 0}})
+                numericColumn3('endPlus', {constraints: {min: 0}}),
+                numericColumn3('l1', {smallDelta: 1, constraints: {min: 0, places: 0}}),
+                numericColumn3('l2', {smallDelta: 1, constraints: {min: 0, places: 0}})
             ]
         }, 'PlanElementsDataEntriesTableEditor').startup();
 
@@ -52,6 +52,12 @@
 
         function selectColumn(field, selectOptions, setFunction) {
             return SelectColumn('PlanElementsDataEntry.', field, '.label', selectOptions, undefined, setFunction);
+        }
+
+        function numericColumn3(field, editorArgs) {
+            return numericColumn2(field, editorArgs, function(data) {
+                data[field] = data[field] * ${com.r3.dataset.DataEntry.MM_IN_METER};
+            });
         }
 
         function angleColumn(field) {

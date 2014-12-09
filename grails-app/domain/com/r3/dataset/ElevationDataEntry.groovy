@@ -95,11 +95,12 @@ class ElevationDataEntry extends DataEntry<PlanElementsDataEntryReadOnly> {
         result['h'] = h
         result['t1'] = t1
         result['t2'] = t2
-        result['length'] = length
+        result['length'] = 1.0 * length / DataEntry.MM_IN_METER
         result['endKm'] = endKm
         result['endPk'] = endPk
-        result['endPlus'] = endPlus
-        result['l1'] = l1
+        result['endPlus'] = endPlus / DataEntry.MM_IN_METER
+        result['l1'] = 1.0 * l1 / DataEntry.MM_IN_METER
+        result['l2'] = 1.0 * l2 / DataEntry.MM_IN_METER
         result['g'] = g
         result['h_'] = h_
         result['i'] = i
@@ -115,6 +116,7 @@ class ElevationDataEntry extends DataEntry<PlanElementsDataEntryReadOnly> {
         result['v'] = v
         result['w'] = w
         result['y'] = y
+        result['x'] = x
         result['z'] = z
         result['aa'] = aa
         result['ab'] = ab

@@ -87,12 +87,12 @@ class PlanElementsDataEntry extends DataEntry<PlanElementsDataEntryReadOnly> {
         result['h'] = h
         result['t1'] = t1
         result['t2'] = t2
-        result['length'] = length
+        result['length'] = 1.0 * length / DataEntry.MM_IN_METER
         result['endKm'] = endKm
         result['endPk'] = endPk
-        result['endPlus'] = endPlus
-        result['l1'] = l1
-        result['l2'] = l2
+        result['endPlus'] = endPlus / DataEntry.MM_IN_METER
+        result['l1'] = 1.0 * l1 / DataEntry.MM_IN_METER
+        result['l2'] = 1.0 * l2 / DataEntry.MM_IN_METER
         return result
     }
 }
