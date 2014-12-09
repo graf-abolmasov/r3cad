@@ -31,7 +31,7 @@ define([
                 if (editor.saveButton != false) {
                     if (typeof (editor.saveButton) !== 'object') {
                         editor.saveButton = new Button({
-                            label: i18n.t('tableEditor.toolbar.save'),
+                            label: i18n.t('default.editor.save'),
                             iconClass: 'r3-small-icon save-icon',
                             showLabel: false,
                             onClick: function () {
@@ -45,7 +45,7 @@ define([
                 if (editor.revertButton != false) {
                     if (typeof (editor.revertButton) !== 'object') {
                         editor.revertButton = new Button({
-                            label: i18n.t('tableEditor.toolbar.refresh'),
+                            label: i18n.t('default.editor.refresh'),
                             showLabel: false,
                             iconClass: 'r3-small-icon refresh-icon',
                             onClick: function () {
@@ -63,7 +63,7 @@ define([
                 if (editor.addButton != false) {
                     if (typeof (editor.addButton) !== 'object') {
                         editor.addButton = new Button({
-                            label: i18n.t('tableEditor.toolbar.add'),
+                            label: i18n.t('default.editor.add'),
                             showLabel: false,
                             iconClass: 'r3-small-icon add-icon',
                             onClick: function () {
@@ -78,7 +78,7 @@ define([
                 if (editor.removeButton != false) {
                     if (typeof (editor.removeButton) !== 'object') {
                         editor.removeButton = new Button({
-                            label: i18n.t('tableEditor.toolbar.remove'),
+                            label: i18n.t('default.editor.remove'),
                             showLabel: false,
                             iconClass: 'r3-small-icon remove-icon',
                             onClick: function () {

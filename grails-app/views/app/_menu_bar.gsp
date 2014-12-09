@@ -2,7 +2,7 @@
 <span data-dojo-type="dijit/MenuBar" tabIndex="0" region="top" splitter="false" maxSize="Infinity">
     <span data-dojo-type="dijit/PopupMenuBarItem" label="${message(code:'app.menu.project')}" iconClass="dijitNoIcon">
         <span data-dojo-type="dijit/Menu">
-            <span data-dojo-type="dijit/MenuItem" label="${message(code:'app.menu.project.open')}" onclick="Utils.openSameWindow('${createLink(mapping: 'app', action: 'open')}')"></span>
+            <span data-dojo-type="dijit/MenuItem" label="${message(code:'app.menu.project.open')}" onclick="Utils.openSameWindow('${createLink(controller: 'project')}')"></span>
             <span data-dojo-type="dijit/MenuSeparator"></span>
             %{--<span data-dojo-type="dijit/MenuItem" label="${message(code:'app.menu.project.history')}" onclick="notImplementedYet()"></span>--}%
             <span data-dojo-type="dijit/MenuItem" label="${message(code:'app.menu.project.properties')}"

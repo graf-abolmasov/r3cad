@@ -12,9 +12,6 @@
 
         new TableEditor({
             columns: [
-                numericColumn1('location_km',     {constraints: {min: 0, places: 0}}),
-                numericColumn1('location_pk',     {constraints: {min: 0, max: 9, places: 0}}),
-                numericColumn1('location_plus',   {constraints: {min: 0}}),
                 selectColumn('elementType', i18n.enums.CurveType, function (data) {
                     if (data.elementType == '${CurveType.STRAIGHT.name()}') {
                         data.angle = 0;
@@ -28,17 +25,14 @@
                     }
                     return data.elementType
                 }),
-                angleColumn('angleAsString'),
-                numericColumn2('radius', {constraints: {places: 0}}),
-                numericColumn2('h', {constraints: {places: 0}}),
-                numericColumn2('t1', {smallDelta: 0.01}),
-                numericColumn2('t2', {smallDelta: 0.01}),
-                numericColumn3('length', {smallDelta: 0.001}),
+                numericColumn1('location_km',     {constraints: {min: 0, places: 0}}),
+                numericColumn1('location_pk',     {constraints: {min: 0, max: 9, places: 0}}),
+                numericColumn1('location_plus',   {constraints: {min: 0}}),
                 numericColumn2('endKm', {constraints: {min: 0, places: 0}}),
                 numericColumn2('endPk', {constraints: {min: 0, max: 9, places: 0}}),
                 numericColumn3('endPlus', {constraints: {min: 0}}),
-                numericColumn3('l1', {smallDelta: 1, constraints: {min: 0, places: 0}}),
-                numericColumn3('l2', {smallDelta: 1, constraints: {min: 0, places: 0}}),
+                numericColumn3('length', {smallDelta: 0.001}),
+                numericColumn2('radius', {constraints: {places: 0}}),
                 textColumn('g'),
                 textColumn('h_'),
                 textColumn('i'),
@@ -47,7 +41,10 @@
                 textColumn('l'),
                 textColumn('m'),
                 textColumn('n'),
+                numericColumn2('h', {constraints: {places: 0}}),
                 textColumn('p'),
+                numericColumn3('l1', {smallDelta: 1, constraints: {min: 0, places: 0}}),
+                numericColumn3('l2', {smallDelta: 1, constraints: {min: 0, places: 0}}),
                 textColumn('s'),
                 textColumn('t'),
                 textColumn('u'),

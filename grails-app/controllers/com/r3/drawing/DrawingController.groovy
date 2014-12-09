@@ -58,7 +58,7 @@ class DrawingController {
                 }
             }
 
-            bindData(drawingInstance, params, [exclude: ['project', 'rootTableRow',
+            bindData(drawingInstance, params, [exclude: ['project', 'rootTableRow', 'projectId',
                                                          'stampData.designerDate', 'stampData.supervisorDate', 'stampData.mainSpecialistDate',
                                                          'stampData.departmentHeadDate', 'stampData.gostInspectorDate', 'stampData.chiefDate']])
             bindDates(drawingInstance)
@@ -69,7 +69,7 @@ class DrawingController {
             }
 
             flash.message = message(code: 'app.drawing.edit.success')
-            redirect(action: "edit", id: drawingInstance.id, params: [ok: true])
+            redirect(action: "edit", id: drawingInstance.id, params: [ok: true, projectId: drawingInstance.projectId])
         }
     }
 

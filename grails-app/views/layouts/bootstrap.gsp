@@ -11,7 +11,7 @@
     <meta name="description" content="Welcome page of the R3 CAD Project">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <asset:stylesheet src="application-bootstrap.css"/>
-    <asset:stylesheet src="application-bootstrap.js"/>
+    <asset:javascript src="application-bootstrap.js"/>
     <!--[if lt IE 9]>
 	  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 	  <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.min.js"></script>
@@ -23,6 +23,5 @@
     <div class="container">
         <g:layoutBody/>
     </div>
- 	<script src="//cdnjs.cloudflare.com/ajax/libs/hogan.js/2.0.0/hogan.js"></script>
 </body>
 </html>

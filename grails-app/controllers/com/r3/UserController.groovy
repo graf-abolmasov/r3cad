@@ -6,21 +6,12 @@ class UserController {
 
     static scaffold = true
 
-    static class UserTypeAheadDatum {
-        String value
-        String[] tokens
-        String fullName
-    }
+    def index(Long projectId) {
+        def project = Project.get(projectId)
+        def users = project?.organization?.users ?: []
 
-    def ajaxTypeAhead(Project project) {
-        if (!project || !project.users) {
-            render '[]'
-            return
-        }
-
-        def datums = new ArrayList<UserTypeAheadDatum>(project.users.size())
-        project.users.each { user ->
-            datums.add(new UserTypeAheadDatum(value: user.lastName, fullName: user.toString(), tokens: [user.firstName, user.middleName, user.lastName, user.login]))
+        def datums = users.collect { user ->
+            [value: user.lastName, fullName: user.fullName, tokens: [user.firstName, user.middleName, user.lastName, user.login]]
         }
 
         render datums as JSON

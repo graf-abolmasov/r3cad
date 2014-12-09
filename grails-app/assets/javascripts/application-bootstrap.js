@@ -11,9 +11,13 @@
 //= require bootstrap
 
 // As a part of explicitly downloaded files
-//= require_tree bootstrap
+//= require bootstrap/datepicker/datepicker.js
+//= require bootstrap/datepicker/locales/bootstrap-datepicker.ru
+//= require bootstrap/typeahead/typeahead
 //= require jquery/jquery.tipsy
+//= require jquery/jquery.i18n.properties
 //= require lodash/lodash
+//= require hogan/hogan.min
 
 // R3 Application specific files
 //= require_self

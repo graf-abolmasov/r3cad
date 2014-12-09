@@ -19,11 +19,11 @@
             </g:eachError>
         </g:hasErrors>
 
-        <g:form action="update" role="form" method="post">
+        <g:form action="update" id="${drawingInstance.id}" role="form" method="PUT" params="[projectId: drawingInstance.projectId]">
             <g:hiddenField name="id" value="${drawingInstance?.id}" />
             <g:hiddenField name="version" value="${drawingInstance?.version}" />
             <g:render template="form"/>
-            <g:submitButton name="save" class="btn btn-primary" value="${message(code: 'default.button.update.label')}"/>
+            <g:submitButton action="update" name="save" class="btn btn-primary" value="${message(code: 'default.button.update.label')}"/>
             <a href="#" onclick="window.close()" class="btn btn-default"><g:message code="app.drawing.edit.button.close" /></a>
         </g:form>
         <div style="height: 25px"></div>

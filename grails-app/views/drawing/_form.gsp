@@ -196,7 +196,7 @@
 
     $('.user-typeahead').typeahead({
         name: 'users',
-        prefetch: '${createLink(mapping: 'userTypeAheadHelper', id: drawingInstance.project.id)}',
+        prefetch: '${createLink(controller: 'user', params: [projectId: drawingInstance.projectId])}',
         ttl: 1000,
         template: '<p>{{fullName}}</p>',
         engine: Hogan

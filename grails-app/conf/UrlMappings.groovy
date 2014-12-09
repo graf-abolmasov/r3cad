@@ -33,19 +33,6 @@ class UrlMappings {
         "500"(view: '/error')
         "/test/randomDrawing"(controller: 'drawing', action: 'randomDrawing')
 
-        // *************************
-        // *                       *
-        // * Legacy code down here *
-        // *                       *
-        // *************************
-
-
-
-        name userTypeAheadHelper: "/helpers/users/${id}"(controller: 'user', action: 'ajaxTypeAhead')
-
-        /**
-         * REST API Mapping
-         */
-
+        "/$projectId/users"(controller: 'user', action: 'index')
     }
 }

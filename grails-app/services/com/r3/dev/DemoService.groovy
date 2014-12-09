@@ -281,7 +281,7 @@ class DemoService {
                         g: tokens[17], h_: tokens[18], i: tokens[19], j: tokens[20], k: tokens[21], l: tokens[22],
                         m: tokens[23], n: tokens[24], p: tokens[25], s: tokens[26], t: tokens[27], u: tokens[28],
                         v: tokens[29], w: tokens[30], x: tokens[31], y: tokens[32], z: tokens[33], aa: tokens[34],
-                        ab: tokens[35], ad: tokens[36], ae: tokens[37], af: '8'))
+                        ab: tokens[35], ad: tokens[36], ae: tokens[37], af: '-'))
             }
         }
         saveInstance(plansElementsDataSet2)
@@ -345,16 +345,8 @@ class DemoService {
         sleepersDataSet3.addToValues(location: [km: 1290, pk: 0, plus: 20 * Location.MM_IN_METER], endLocation: [km: 1298, pk: 3, plus: 0], sleepersType: SleepersType.WOODEN)
         saveInstance(sleepersDataSet1)
 
-        def firstPicket = railHeadAltsDataSet1.values.first()
-        def lastPicket = railHeadAltsDataSet1.values.last()
-
-        def firstMm = firstPicket.toPk() * Location.MM_IN_PK + firstPicket.plus
-        def lastMm = lastPicket.toPk() * Location.MM_IN_PK + lastPicket.plus
-        def length = lastMm - firstMm
-
         railHeadAltsDataSet1.values.eachWithIndex { it, idx ->
-            def value = Math.sin((it.toPk() * Location.MM_IN_PK) / length * 10 * Math.PI) * 6 + 75
-            railHeadAltsDataSet3.addToValues(location: [km: it.km, pk: it.pk, plus: 0], doubleValue: value)
+            railHeadAltsDataSet3.addToValues(location: [km: it.km, pk: it.pk, plus: 0], doubleValue: nextDouble(it.doubleValue - 0.5, it.doubleValue + 0.1))
             interWay12DataSet.addToValues(location: [km: it.km, pk: it.pk, plus: 0], doubleValue: nextDouble(5, 10))
             interWay23DataSet.addToValues(location: [km: it.km, pk: it.pk, plus: 0], doubleValue: nextDouble(10, 20))
             projectCustomDataSet1.addToValues(location: [km: it.km, pk: it.pk, plus: it.plus], doubleValue: nextDouble())

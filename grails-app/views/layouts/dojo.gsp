@@ -41,7 +41,7 @@
 </head>
 <body class="claro">
     <div id="loadingOverlay" class="loadingOverlay pageOverlay">
-        <div class="loadingMessage">Loading...</div>
+        <div class="loadingMessage">${message(code: 'app.loading')}</div>
     </div>
 <script type="text/javascript">
     require([

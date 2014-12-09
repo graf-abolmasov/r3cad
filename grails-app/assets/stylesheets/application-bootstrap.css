@@ -11,7 +11,8 @@
 *  As a part of plugins
 *= require bootstrap
 *= require bootstrap-theme
-*= require_tree bootstrap
+*= require bootstrap/typeahead/typeahead
+*= require bootstrap/datepicker/datepicker
 *
 *= require_self
 */

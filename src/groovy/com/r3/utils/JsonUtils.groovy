@@ -42,6 +42,7 @@ final class JsonUtils {
         registerCustomMarshaller(TreeNode)
     }
 
+    @Deprecated
     static Map unwrapNulls(Map jsonObject) {
         def result = jsonObject?.collectEntries { k, v ->
             JSONObject.NULL.equals(v) ? [k, null] : [k, v]
