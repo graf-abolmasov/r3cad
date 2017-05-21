@@ -35,7 +35,7 @@ environments {
     production {
         dataSource {
             dbCreate = "create-drop"
-            driverClassName: org.postgresql.Driver
+            driverClassName = "org.postgresql.Driver"
             url = "jdbc:postgresql://localhost:5432/r3_production"
             username = "r3cad"
             password = "r3cad"
