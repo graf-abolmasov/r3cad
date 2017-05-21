@@ -90,7 +90,8 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://r3cad.com/r3"
+        grails.serverURL = "http://r3cad.farmskd.ru/r3"
+        grails.assets.url = "http://r3cad.farmskd.ru/"
     }
 }
 

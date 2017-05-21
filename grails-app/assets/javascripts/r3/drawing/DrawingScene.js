@@ -6,9 +6,9 @@ define([
     'put-selector/put'
 ], function(req, declare, dom, lang, put) {
 
-    var blockScroll = function () {
+    function blockScroll() {
         d3.event.preventDefault();
-    };
+    }
 
     return declare(null, {
 

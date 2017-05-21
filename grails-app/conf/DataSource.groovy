@@ -35,7 +35,11 @@ environments {
     production {
         dataSource {
             dbCreate = "create-drop"
-            jndiName = "java:comp/env/r3prodDS"
+            driverClassName: org.postgresql.Driver
+            url = "jdbc:postgresql://localhost:5432/r3_production"
+            username = "r3cad"
+            password = "r3cad"
+            // jndiName = "java:comp/env/r3prodDS"
             dialect =  com.r3.hibernate.FixedPostgresPlusDialect
             properties {
                 // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
